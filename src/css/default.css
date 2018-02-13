@@ -1,0 +1,65 @@
+*{margin:0;padding:0;}
+*{box-sizing: border-box;}
+*::after{box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+ul,ol{ list-style:none; }
+a{color:inherit; text-decoration: none;}
+
+body{
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* layout */
+
+.page{
+  display: flex;
+  height: 100vh;
+}
+.page > aside{
+  width: 200px;
+}
+.page > main{
+  flex-grow: 1;
+}
+
+/* aside */
+.page > aside{
+  display: flex;
+  flex-direction: column;
+}
+.newSong{
+  text-align: center;
+  padding: 10px;
+}
+.newSong.active{
+  background: #d4d4d4;
+}
+.songList{
+  flex-grow: 1;
+  text-align: left;
+  border-top: 1px solid #999;
+}
+.songList > li{
+  border-bottom: 1px solid #ddd; 
+  padding: 10px; 
+}
+.songList > li.active{
+  background: #d4d4d4;
+}
+.uploadArea{}
+.draggable{
+  text-align: center;
+  padding: 20px;
+  border-radius: 4px;
+  border: 2px dashed #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  flex-direction: column;
+}
+.clickable{
+  cursor: pointer;
+}
