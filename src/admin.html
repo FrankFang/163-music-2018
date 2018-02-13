@@ -10,20 +10,9 @@
   <div class="page">
     <aside>
       <div class="newSong">
-        新建歌曲
       </div>
-      <ul class="songList">
-        <li>歌曲1</li>
-        <li class="active">歌曲222222</li>
-        <li>歌曲3333</li>
-        <li>歌曲4</li>
-        <li>歌曲555</li>
-        <li>歌曲6</li>
-        <li>歌曲7</li>
-        <li>歌曲8</li>
-        <li>歌曲9</li>
-        <li>歌曲10</li>
-      </ul>
+      <div id="songList-container">
+      </div>
       <div class="uploadArea">
         <div id="uploadContainer" class="draggable">
           <div id="uploadButton" class="clickable">
@@ -34,91 +23,19 @@
       </div>
     </aside>
     <main>
-      <h1>新建歌曲</h1>
-      <form class="form">
-        <div class="row">
-          <label>
-          歌名
-          </label>
-          <input type="text">
-        </div>
-        <div class="row">
-          <label>
-          歌手
-          </label>
-          <input type="text">
-        </div>
-        <div class="row">
-          <label>
-          外链
-          </label>
-          <input type="text">
-        </div>
-        <div class="row actions">
-          <button type="submit">保存</button>
-        </div>
-      </form>
     </main>
   </div>
   
-  <style>
-  </style>
   <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
-  <script>
-    var APP_ID = 'KOi8a7LVf2KuViQRUxhfRpnd-gzGzoHsz';
-var APP_KEY = 'mFRdDmeLhSdr3UO3iSI8K3ex';
-
-AV.init({
-  appId: APP_ID,
-  appKey: APP_KEY
-});
-  </script>
+  <script src="./js/initializers/av.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../vendors/moxie.js"></script>
   <script src="../node_modules/plupload/js/plupload.min.js"></script>
   <script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
-  <script>
-    var uploader = Qiniu.uploader({
-      runtimes: 'html5',    //上传模式,依次退化
-      browse_button: 'uploadButton',       //上传选择的点选按钮，**必需**
-      uptoken_url : 'http://localhost:8888/uptoken',
-      // unique_names: true, // 默认 false，key为文件名。若开启该选项，SDK为自动生成上传成功后的key（文件名）。
-      // save_key: true,   // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK会忽略对key的处理
-      domain: 'p3ysl7tz6.bkt.clouddn.com',   //bucket 域名，下载资源时用到，**必需**
-      // p3ysl7tz6.bkt.clouddn.com
-      get_new_uptoken: false,  //设置上传文件的时候是否每次都重新获取新的token
-      max_file_size: '40mb',           //最大文件体积限制
-      dragdrop: true,                   //开启可拖曳上传
-      drop_element: 'uploadContainer',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
-      auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
-      init: {
-        'FilesAdded': function(up, files) {
-          plupload.each(files, function(file) {
-            // 文件添加进队列后,处理相关的事情
-          });
-        },
-        'BeforeUpload': function(up, file) {
-          // 每个文件上传前,处理相关的事情
-        },
-        'UploadProgress': function(up, file) {
-          // 每个文件上传时,处理相关的事情
-          uploadStatus.textContent = '上传中'
-        },
-        // 文件上传成功之后调用 FileUploaded
-        'FileUploaded': function(up, file, info) {
-          var domain = up.getOption('domain');
-          var response = JSON.parse(info.response);
-          var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key); 
-          uploadStatus.textContent = sourceLink + ' ' + response.key
-        },
-        'Error': function(up, err, errTip) {
-          //上传出错时,处理相关的事情
-        },
-        'UploadComplete': function() {
-          //队列文件处理完毕后,处理相关的事情
-        },
-      }
-    });
-
-  </script>
+  <script src="./js/event-hub.js"></script>
+  <script src="./js/song-form.js"></script>
+  <script src="./js/new-song.js"></script>
+  <script src="./js/song-list.js"></script>
+  <script src="./js/upload-song.js"></script>
 </body>
 </html>
