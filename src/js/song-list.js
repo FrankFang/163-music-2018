@@ -70,9 +70,6 @@
       })
     },
     bindEventHub(){
-      window.eventHub.on('upload', ()=>{
-        this.view.clearActive()
-      })
       window.eventHub.on('create', (songData)=>{
         // songs = ['ADDR 108']
         this.model.data.songs.push(songData)
