@@ -110,3 +110,41 @@ body{
 .page > main > .form{
 
 }
+/* loading */
+
+@keyframes loading{
+  0% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(0.1);
+  }
+}
+.site-loading{
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0,0,0,0.2);
+}
+.site-loading.active{
+  visibility: visible;
+}
+.site-loading::before{
+  content: '';
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  border-radius: 50%;
+  animation: loading 1s infinite alternate-reverse;
+  animation-timing-function: linear;
+}
