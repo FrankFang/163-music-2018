@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>我的云音乐</title>
+  <link rel="stylesheet" href="./css/song.css">
+</head>
+<body>
+  <div class="page" id="app">
+    <audio src="#"></audio>
+    <div class="disc-container">
+      <img class="pointer" src="//s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862 " alt="">
+      <div class="disc">
+        <div class="icon-wrapper">
+          <svg class="icon icon-play">
+            <use xlink:href="#icon-play"></use>
+          </svg>
+          <div class="icon icon-pause">
+            暂
+          </div>
+        </div>
+        <img class="ring" src="//s3.music.126.net/m/s/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48" alt="">
+        <img class="light" src="//s3.music.126.net/m/s/img/disc_light-ip6.png?996fc8a2bc62e1ab3f51f135fc459577" alt="">
+        <img src="//p1.music.126.net/_ZIyHUML8sXBvJXqLdQDOg==/105553116278617.jpg?imageView&thumbnail=360x0&quality=75&tostatic=0" alt="" class="cover">
+      </div>
+    </div>
+    <div class="song-description">
+      <h1>太平洋的风-胡德夫</h1>
+      <div class="lyric">
+        <div class="lines">
+
+        </div>
+      </div>
+    </div>
+    <div class="links">
+      <a href="#">打开</a>
+      <a class="main" href="#">下载</a>
+    </div>
+  </div>
+  <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
+  <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+  <script src="./js/initializers/av.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./js/admin/event-hub.js"></script>
+  <script src="./js/song/app.js"></script>
+</body>
+</html>
